@@ -5161,17 +5161,33 @@ addEventListener('keyup', e => { const k = KEYMAP[e.code]; if (k) { e.preventDef
 addEventListener('blur', () => { for (const k in held) if (held[k]) setKey(k, false); });
 // ---------- manette (Xbox, PlayStation, Switch Pro… : disposition standard) ----------
 const GP = { prev: {}, on: false };
+setInterval(() => { if (!GP.on && navigator.getGamepads && [...navigator.getGamepads()].some(Boolean)) { GP.on = true; requestAnimationFrame(pollPad); } }, 1000);
 addEventListener('gamepadconnected', e => { toast('🎮 Manette connectée : ' + (e.gamepad.id.split('(')[0].trim() || 'manette')); if (!GP.on) { GP.on = true; requestAnimationFrame(pollPad); } });
 function pollPad() {
   const pads = navigator.getGamepads ? [...navigator.getGamepads()].filter(Boolean) : [];
   if (!pads.length) { GP.on = false; GP.prev = {}; return; }
   const st = {};
   for (const p of pads) {
-    const b = i => !!(p.buttons[i] && p.buttons[i].pressed), ax = p.axes || [];
+    const b = i => !!(p.buttons[i] && (p.buttons[i].pressed || p.buttons[i].value > 0.5)), ax = p.axes || [];
     const add = (k, v) => { st[k] = st[k] || v; };
-    add('left', b(14) || ax[0] < -0.5); add('right', b(15) || ax[0] > 0.5); add('up', b(12) || ax[1] < -0.5); add('down', b(13) || ax[1] > 0.5);
-    add('jump', b(0) || b(1)); add('time', b(2)); add('alarm', b(3)); add('gamea', b(9)); add('gameb', b(8));
-    add('gfx', b(4)); add('snd', b(5)); add('menu', b(6) || b(16)); add('final', b(7));
+    // croix « chapeau » des manettes USB génériques (Chrome : axe 9, valeurs -1 à 1 par pas de 2/7)
+    let hu = 0, hd = 0, hl = 0, hr = 0;
+    for (const hi of [9, 6, 7]) {
+      const h = ax[hi];
+      if (p.mapping !== 'standard' && h !== undefined && h >= -1.05 && h <= 1.05 && Math.abs(h) > 0.05 && (hi === 9 || ax.length === 8 && hi >= 6)) {
+        if (hi === 9) { const s = Math.round((h + 1) * 3.5); hu = s === 0 || s === 1 || s === 7; hr = s >= 1 && s <= 3; hd = s >= 3 && s <= 5; hl = s >= 5 && s <= 7; }
+        else if (hi === 6) { hl = hl || h < -0.5; hr = hr || h > 0.5; } else { hu = hu || h < -0.5; hd = hd || h > 0.5; }
+      }
+    }
+    add('left', b(14) || ax[0] < -0.5 || hl); add('right', b(15) || ax[0] > 0.5 || hr); add('up', b(12) || ax[1] < -0.5 || hu); add('down', b(13) || ax[1] > 0.5 || hd);
+    if (p.mapping === 'standard') {                      // Xbox, PlayStation, Switch Pro… (disposition standard)
+      add('jump', b(0) || b(1)); add('time', b(2)); add('alarm', b(3)); add('gamea', b(9)); add('gameb', b(8));
+      add('gfx', b(4)); add('snd', b(5)); add('menu', b(6) || b(16)); add('final', b(7));
+    } else {                                             // manette USB générique (style Super Nintendo, etc.)
+      add('jump', b(0) || b(1) || b(2) || b(3)); add('gamea', b(9)); add('gameb', b(8));
+      add('gfx', b(4)); add('snd', b(5)); add('menu', b(6)); add('final', b(7));
+      add('time', b(10)); add('alarm', b(11));
+    }
   }
   const menuOpen = !menu.classList.contains('hide');
   for (const k in st) {
@@ -5876,7 +5892,7 @@ window.emu = { cpu, setKey, get mode() { return mode; }, segState };
     C('v4Ghost').classList.toggle('sel', document.body.classList.contains('ghost'));
     C('v4Fin').classList.toggle('locked', !isUnlocked('dark'));
     const pads = navigator.getGamepads ? [...navigator.getGamepads()].filter(Boolean) : [];
-    C('v4Pad').innerHTML = '⌨ Flèches · Espace · F plein écran<br>' + (pads.length ? '🎮 Manette connectée ✓' : '🎮 Manette Xbox, PS ou Switch Pro');
+    C('v4Pad').innerHTML = '⌨ Flèches · Espace · F plein écran<br>' + (pads.length ? '🎮 Manette connectée ✓' : '🎮 Branche une manette USB<br>puis appuie sur un de ses boutons');
   }
   info(); setInterval(info, 500);
 })();
