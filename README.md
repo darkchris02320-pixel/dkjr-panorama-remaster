@@ -23,7 +23,7 @@ Ce remaster, c'est ma façon de rendre hommage à ces soirées en famille : gard
 
 | Version | Fichier | Notice |
 |---|---|---|
-| 💻 **PC** (Windows, Mac, Linux — navigateur) | [DKJr-Panorama-Remaster-V4.1-PC.zip](telechargements/DKJr-Panorama-Remaster-V4.1-PC.zip) | [Notice PC](notices/NOTICE-PC.md) |
+| 💻 **PC** (Windows, Mac, Linux — navigateur) | [DKJr-Panorama-Remaster-V4.2-PC.zip](telechargements/DKJr-Panorama-Remaster-V4.2-PC.zip) | [Notice PC](notices/NOTICE-PC.md) |
 | 🎮 **Anbernic RG35XXSP** (et consoles PortMaster) | [DKJr-Panorama-Remaster-V3.0-Anbernic-RG35XXSP.zip](telechargements/DKJr-Panorama-Remaster-V3.0-Anbernic-RG35XXSP.zip) | [Notice Anbernic](notices/NOTICE-ANBERNIC.md) |
 | 🕹️ **Nintendo Switch** (homebrew .nro) | [DKJr-Panorama-Remaster-V3.0-Switch.zip](telechargements/DKJr-Panorama-Remaster-V3.0-Switch.zip) | [Notice Switch](notices/NOTICE-SWITCH.md) |
 

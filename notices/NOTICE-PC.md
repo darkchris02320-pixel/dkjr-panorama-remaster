@@ -1,9 +1,9 @@
-# Notice — version PC (V4.1)
+# Notice — version PC (V4.2)
 
 ## Installation
 
-1. Télécharge [`DKJr-Panorama-Remaster-V4.1-PC.zip`](../telechargements/DKJr-Panorama-Remaster-V4.1-PC.zip) et décompresse-le.
-2. Ouvre le fichier `Donkey Kong Jr. Panorama - Remaster V4.1.html` avec Chrome, Edge ou Firefox.
+1. Télécharge [`DKJr-Panorama-Remaster-V4.2-PC.zip`](../telechargements/DKJr-Panorama-Remaster-V4.2-PC.zip) et décompresse-le.
+2. Ouvre le fichier `Donkey Kong Jr. Panorama - Remaster V4.2.html` avec Chrome, Edge ou Firefox.
 3. Au premier lancement, le jeu demande la **ROM d'origine** (voir le [README](../README.md#-rom-dorigine-non-fournie)) :
    clique sur **Choisir les fichiers** et sélectionne `gnw_dkjrp.zip`, ou les deux fichiers `cj-93.program` et `cj-93.melody`.
    Elle est mémorisée : c'est à faire une seule fois.
