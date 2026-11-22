@@ -1,9 +1,9 @@
-# Notice — version PC (V4.2)
+# Notice — version PC (V4.3)
 
 ## Installation
 
-1. Télécharge [`DKJr-Panorama-Remaster-V4.2-PC.zip`](../telechargements/DKJr-Panorama-Remaster-V4.2-PC.zip) et décompresse-le.
-2. Ouvre le fichier `Donkey Kong Jr. Panorama - Remaster V4.2.html` avec Chrome, Edge ou Firefox.
+1. Télécharge [`DKJr-Panorama-Remaster-V4.3-PC.zip`](../telechargements/DKJr-Panorama-Remaster-V4.3-PC.zip) et décompresse-le.
+2. Ouvre le fichier `Donkey Kong Jr. Panorama - Remaster V4.3.html` avec Chrome, Edge ou Firefox.
 3. Au premier lancement, le jeu demande la **ROM d'origine** (voir le [README](../README.md#-rom-dorigine-non-fournie)) :
    clique sur **Choisir les fichiers** et sélectionne `gnw_dkjrp.zip`, ou les deux fichiers `cj-93.program` et `cj-93.melody`.
    Elle est mémorisée : c'est à faire une seule fois.
@@ -23,6 +23,7 @@ Tu peux aussi jouer directement en ligne, sans rien installer, depuis la page du
 | V | Changer de tableau (parmi ceux débloqués) |
 | O | Son : original (bip) ou symphonique |
 | G | Segments LCD éteints |
+| J | Junior classique / nouveau Junior (tableau Remake HD) |
 | F | Plein écran (le cadre disparaît) |
 | M | Couper le son |
 | Échap | Menu |
@@ -66,7 +67,7 @@ Si une manette ne réagit pas, ouvre le site https://hardwaretester.com/gamepad 
 - **Tableaux** : les 8 univers, avec les points à atteindre pour ceux qui sont encore verrouillés.
 - **En ligne** : classement, trophées, revoir la fin.
 - **Console** : Heure, Alarme, ACL.
-- **Son**, **Affichage** (plein écran, segments LCD), **Aide**.
+- **Son**, **Affichage** (plein écran, segments LCD, Junior classique ou nouveau), **Aide**.
 
 ## Sauvegarde
 
